@@ -1,0 +1,4 @@
+[
+    { "command": "media_player_play_gif", "args": {"file_name": "$/example/dinosaur.gif"}, "caption": "MediaPlayer: Play GIF dinosaur.gif" },
+    { "command": "media_player_play_gif", "caption": "MediaPlayer: Play GIF Select" }
+]
