@@ -2,14 +2,14 @@
 # pyglet
 # Copyright (c) 2006-2008 Alex Holkner
 # All rights reserved.
-# 
+#
 # Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions 
+# modification, are permitted provided that the following conditions
 # are met:
 #
 #  * Redistributions of source code must retain the above copyright
 #    notice, this list of conditions and the following disclaimer.
-#  * Redistributions in binary form must reproduce the above copyright 
+#  * Redistributions in binary form must reproduce the above copyright
 #    notice, this list of conditions and the following disclaimer in
 #    the documentation and/or other materials provided with the
 #    distribution.
@@ -39,7 +39,7 @@ functions.  Functions have identical signatures to their C counterparts.  For
 example::
 
     from pyglet.gl import *
-    
+
     # [...omitted: set up a GL context and framebuffer]
     glBegin(GL_QUADS)
     glVertex3f(0, 0, 0)
@@ -47,7 +47,7 @@ example::
     glVertex3f(0.1, 0.2, 0.3)
     glEnd()
 
-OpenGL is documented in full at the `OpenGL Reference Pages`_.  
+OpenGL is documented in full at the `OpenGL Reference Pages`_.
 
 The `OpenGL Programming Guide`_ is a popular reference manual organised by
 topic.  The free online version documents only OpenGL 1.1.  `Later editions`_
@@ -98,7 +98,7 @@ from pyglet.gl.lib import GLException
 from pyglet.gl.gl import *
 from pyglet.gl.glu import *
 from pyglet.gl.glext_arb import *
-from pyglet.gl import gl_info
+# from pyglet.gl import gl_info
 
 import sys as _sys
 _is_epydoc = hasattr(_sys, 'is_epydoc') and _sys.is_epydoc
@@ -191,7 +191,7 @@ if _pyglet.options['debug_texture']:
         else:
             for i in range(n):
                 _debug_texture_dealloc(textures[i].value)
-        
+
         return _glDeleteTextures(n, textures)
 
 def _create_shadow_window():
@@ -200,7 +200,7 @@ def _create_shadow_window():
     import pyglet
     if not pyglet.options['shadow_window'] or _is_epydoc:
         return
-    
+
     from pyglet.window import Window
     _shadow_window = Window(width=1, height=1, visible=False)
     _shadow_window.switch_to()
@@ -220,7 +220,7 @@ elif _sys.platform == 'darwin':
         from cocoa import CocoaConfig as Config
     else:
         from carbon import CarbonConfig as Config
-del base
+# del base
 
 # XXX remove
 _shadow_window = None
@@ -228,8 +228,8 @@ _shadow_window = None
 # Import pyglet.window now if it isn't currently being imported (this creates
 # the shadow window).
 if (not _is_epydoc and
-    'pyglet.window' not in _sys.modules and 
+    'pyglet.window' not in _sys.modules and
     _pyglet.options['shadow_window']):
-    # trickery is for circular import 
+    # trickery is for circular import
     _pyglet.gl = _sys.modules[__name__]
     import pyglet.window
